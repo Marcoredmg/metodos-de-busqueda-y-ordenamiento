@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Metodos de Ordenamiento</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+</head>
+<body class="teal darken-2">
+	<div class="container">
+		<div class="card-panel">
+			<div class="center">
+				<h3>Metodos de Busqueda y Ordenamiento</h3>
+			</div>
+			
+			<div class="row">
+				<div class="container center col s6 offset-s3">
+					<label for="tamaño_vector">Ingrese el tamaño del vector</label>
+					<input id="tamaño_vector" type="number">
+					
+					<br>
+
+					<input class="waves-effect waves-light btn teal accent-4" type="button" onclick="GenerarVector()" value="Generar Vector">
+
+					<p id="vector_original">Vector Original = </p>
+					
+					<label for="selector">Seleccione metodo de ordenamiento</label>
+					<select id="selector" style="display: inherit;">
+						<option value="burbuja">Burbuja</option>
+						<option value="insercion">Insercion</option>
+						<option value="seleccion">Seleccion</option>
+						<option value="mezcla">Mezcla</option>
+						<option value="quick">QuickSort</option>
+						<option value="radix">Radix</option>
+					</select>
+					
+					<br>
+					<input class="waves-effect waves-light btn teal accent-4" type="button" onclick="Ordenar()" value="Ordenar">
+
+					<p id="resultado">Vector Ordenado = </p>
+					
+					<label for="num_busqueda">Numero a buscar</label>
+					<input id="num_busqueda" type="number">
+					
+					<br>
+					
+					<label for="selector_busqueda">Seleccione metodo de busqueda</label>
+					<select id="selector_busqueda" style="display: inherit;">
+						<option value="secuencial">Secuencial</option>
+						<option value="binaria">Binaria</option>
+					</select>
+					<br>
+					<input class="waves-effect waves-light btn teal accent-4" type="button" value="Buscar" onclick="Buscar()">
+
+					<p id="resultado_busqueda">¿?</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+
+</body>
+<script type="text/javascript" src="Metodos de ordenamiento.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+</html>
