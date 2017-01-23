@@ -36,6 +36,9 @@ function Ordenar(){
 		vector = QuickSort(vector);
 	}else if(metodo == "radix"){
 		RadixSort(vector, 3);
+	}else if(metodo == "casilleros"){
+		resultado.textContent = "Vector Ordenado = " + Casilleros(vector);
+		vector = Casilleros(vector);
 	}
 
 }
@@ -151,6 +154,45 @@ function RadixSort(vector, maxDigit) {
         }
     }
     resultado.textContent = "Vector Ordenado = " + vector;
+}
+
+function Casilleros(vector, num) {
+    if (vector.length <= 1) {
+        return vector;
+    }
+    var len = vector.length,
+        lockers = [],
+        result = [],
+        min = max = vector[0],
+        regex = '/^[1-9]+[0-9]*$/',
+        space, n = 0;
+    num = num || ((num > 1 && regex.test(num)) ? num : 10);
+    
+    for (var i = 1; i < len; i++) {
+        min = min <= vector[i] ? min : vector[i];
+        max = max >= vector[i] ? max : vector[i];
+    }
+    space = (max - min + 1) / num;
+    for (var j = 0; j < len; j++) {
+        var index = Math.floor((vector[j] - min) / space);
+        if (lockers[index]) { 
+            var k = lockers[index].length - 1;
+            while (k >= 0 && lockers[index][k] > vector[j]) {
+                lockers[index][k + 1] = lockers[index][k];
+                k--;
+            }
+            lockers[index][k + 1] = vector[j];
+        } else { 
+            lockers[index] = [];
+            lockers[index].push(vector[j]);
+        }
+    }
+    while (n < num) {
+        result = result.concat(lockers[n]);
+        n++;
+    }
+    
+    return result
 }
 
 function Secuencial(vector, n){
